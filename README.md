@@ -16,9 +16,10 @@ This Arduino project provides a modular C++ class called `Finger`, which control
 ## Hardware Required
 
 - Arduino board
-- Analog input sensor (e.g., potentiometer, flex sensor)
+- Analog input sensor (e.g., potentiometer, flex sensor) this project uses circular pressure sensors 
 - Servo motor
 - Jumper wires
+- 1000 uF Capacitor
 
 ---
 
