@@ -1,6 +1,6 @@
 # Robotic Hand PID Servo Controller
 
-This Arduino project provides a modular C++ class called `Finger`, which controls a servo motor using input from an analog sensor and a PID (Proportional-Integral-Derivative) control loop. It's designed to smoothly and accurately move the servo based on sensor feedback.
+This Arduino project provides a C++ class called `Finger`, which controls a servo motor using input from an analog sensor and a PID (Proportional-Integral-Derivative) control loop. It's designed to smoothly and accurately move the servo based on sensor feedback.
 
 ---
 
