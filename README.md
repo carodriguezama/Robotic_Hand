@@ -32,7 +32,7 @@ Servo motors typically have three wires:
 
 Analog sensor (e.g., potentiometer or flex sensor) should be connected to an analog input pin (e.g., A0).
 
-### Schematic View
+### Schematic 
 ![Schematic](Schematics/Block_Diagram.png)
 
 ---
