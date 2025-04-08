@@ -119,6 +119,7 @@ void loop() {
     delay(15); // Wait for movement
   }
 }*/
+/*
 int pin = 5;
 void setup() {
   // Set pin 9 as output
@@ -151,6 +152,32 @@ void setup() {
 void loop() {
   // You can change OCR1A to control the duty cycle
   analogWrite(pin,4800);
+}*/
+
+#include "Finger.h"
+
+// Define pin pairs: {inputPin, outputPin}
+const int NUM_FINGERS = 3;
+int inputPins[NUM_FINGERS]  = {A0, A1, A2};
+int outputPins[NUM_FINGERS] = {9, 10, 11};
+
+// Create the array of fingers
+Finger* fingers[NUM_FINGERS];
+
+
+void setup() {
+  for (int i = 0; i < NUM_FINGERS; i++) {
+    fingers[i] = new Finger(inputPins[i], outputPins[i]);
+    fingers[i]->begin();  
+  }
 }
+
+void loop() {
+  for (int i = 0; i < NUM_FINGERS; i++) {
+    fingers[i]->update();
+  }
+}
+
+
 
 
