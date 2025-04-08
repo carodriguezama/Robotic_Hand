@@ -1,10 +1,10 @@
-# Finger PID Servo Controller
+# Robotic Hand PID Servo Controller
 
 This Arduino project provides a modular C++ class called `Finger`, which controls a servo motor using input from an analog sensor and a PID (Proportional-Integral-Derivative) control loop. It's designed to smoothly and accurately move the servo based on sensor feedback.
 
 ---
 
-## 📦 Features
+## Features
 
 - Object-oriented class to control a servo via PID
 - Adjustable PID tuning based on proximity to target
@@ -13,7 +13,7 @@ This Arduino project provides a modular C++ class called `Finger`, which control
 
 ---
 
-## 🔧 Hardware Required
+## Hardware Required
 
 - Arduino board
 - Analog input sensor (e.g., potentiometer, flex sensor)
@@ -22,7 +22,7 @@ This Arduino project provides a modular C++ class called `Finger`, which control
 
 ---
 
-## 🔌 Circuit Diagram
+## Circuit Diagram
 
 Servo motors typically have three wires:  
 - **Red**: VCC (connect to Arduino 5V)  
@@ -37,11 +37,11 @@ Analog sensor (e.g., potentiometer or flex sensor) should be connected to an ana
 ### Schematic View
 ![Schematic](images/finger_schem.png)
 
-> 📌 **Tip:** You can create diagrams like these using [Fritzing](http://fritzing.org/).
+> **Tip:** You can create diagrams like these using [Fritzing](http://fritzing.org/).
 
 ---
 
-## 🛠️ Installation
+## Installation
 
 1. Clone or download this repo.
 2. Make sure you have the following Arduino libraries installed:
@@ -51,7 +51,7 @@ Analog sensor (e.g., potentiometer or flex sensor) should be connected to an ana
 
 ---
 
-## 🧪 Usage Example
+## Usage Example
 
 ```cpp
 #include "Finger.h"
