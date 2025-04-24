@@ -1,63 +1,58 @@
-# Robotic Hand PID Servo Controller
+# PID-Controlled Robotic Hand (Arduino)
 
-This Arduino project provides a C++ class called `Finger`, which controls a servo motor using input from an analog sensor and a PID (Proportional-Integral-Derivative) control loop. It's designed to smoothly and accurately move the servo based on sensor feedback.
-
----
+This project implements a robotic hand using servo motors and flex sensors, controlled by PID algorithms for precise finger movement. It uses an Arduino microcontroller to read sensor data and adjust finger positions in real time.
 
 ## Features
 
-- Object-oriented class to control a servo via PID
-- Adjustable PID tuning based on proximity to target
-- Easy integration with other Arduino projects
-- Uses `Servo.h` and `PID_v1.h` libraries
+- **PID-Controlled Fingers:** Each finger (Thumb, Index, Middle, Pinky) responds to flex sensor input using PID control.
+- **Simple Grip Servo:** A separate servo controls the grip with predefined positions.
+- **Pushbutton Trigger:** Movement is only active while a button is pressed, simulating grasp action.
+- **Serial Output:** Useful for debugging sensor input and monitoring finger activity.
 
----
+## Hardware Requirements
 
-## Hardware Required
+- Arduino Uno or compatible board
+- 4x Flex sensors (connected to analog pins A0–A3)
+- 5x Servo motors (connected to digital pins 3, 5, 6, 9, 10)
+- Pushbutton (connected to pin 2)
+- Resistors as needed for button pull-up/pull-down configuration
+- Power supply (depending on servo requirements)
 
-- Arduino board
-- Analog input sensor (e.g., potentiometer, flex sensor) this project uses circular pressure sensors 
-- Servo motor
-- Jumper wires
-- 1000 uF Capacitor
+## Libraries Used
 
----
+- [`Servo`](https://www.arduino.cc/en/Reference/Servo) – for controlling servo motors
+- [`PID_v1`](https://playground.arduino.cc/Code/PIDLibrary/) – for implementing the PID algorithm
 
-## Circuit Diagram
+## Pin Configuration
 
-Servo motors typically have three wires:  
-- **Red**: VCC (connect to Arduino 5V)  
-- **Brown/Black**: GND  
-- **Yellow/Orange/White**: Signal (connect to Arduino PWM pin, e.g., D9)
+| Component       | Arduino Pin |
+|----------------|-------------|
+| Thumb Sensor   | A0          |
+| Index Sensor   | A3          |
+| Middle Sensor  | A1          |
+| Pinky Sensor   | A2          |
+| Thumb Servo    | 6           |
+| Index Servo    | 5           |
+| Middle Servo   | 10          |
+| Pinky Servo    | 9           |
+| Grip Servo     | 3           |
+| Button         | 2           |
 
-Analog sensor (e.g., potentiometer or flex sensor) should be connected to an analog input pin (e.g., A0).
+## How It Works
 
-### Schematic 
-![Schematic](Schematics/Block_Diagram.png)
+- On boot, the hand initializes with a relaxed grip.
+- When the pushbutton is pressed, each finger updates its position based on real-time sensor readings using PID control.
+- Releasing the button returns the hand to a default resting position.
 
----
+## Setup Instructions
 
-## Installation
+1. Wire the flex sensors and servos according to the pin configuration.
+2. Upload the Arduino sketch to your board.
+3. Press and hold the button to activate the hand.
+4. Adjust PID parameters in code for better responsiveness if needed.
 
-1. Clone or download this repo.
-2. Make sure you have the following Arduino libraries installed:
-   - `Servo`
-   - `PID_v1`
-3. Include the `Finger.h` and `Finger.cpp` files in your Arduino sketch.
+## Notes
 
----
-
-## Usage Example
-
-```cpp
-#include "Finger.h"
-
-Finger finger(A0, 9, 100); // analog input pin, servo pin, and setpoint
-
-void setup() {
-  finger.begin();
-}
-
-void loop() {
-  finger.update();
-}
+- Make sure to power your servos properly. High torque servos may require an external power supply.
+- PID constants (`Kp`, `Ki`, `Kd`) can be tuned to achieve optimal motion behavior.
+- You can expand this code by adding more control gestures, serial commands, or integrating Bluetooth/WiFi modules.
