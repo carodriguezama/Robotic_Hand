@@ -56,3 +56,7 @@ This project implements a robotic hand using servo motors and flex sensors, cont
 - Make sure to power your servos properly. High torque servos may require an external power supply.
 - PID constants (`Kp`, `Ki`, `Kd`) can be tuned to achieve optimal motion behavior.
 - You can expand this code by adding more control gestures, serial commands, or integrating Bluetooth/WiFi modules.
+## Schematic
+
+*Wiring Diagram*  
+![Gameplay Screenshot](Schematics/Block_Diagram.png)
