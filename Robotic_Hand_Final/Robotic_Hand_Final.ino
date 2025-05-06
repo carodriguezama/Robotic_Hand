@@ -29,7 +29,7 @@ class Finger {
 
     void update() {
       input = analogRead(sensorPin);
-      if(input<setpoint+5 && input > setpoint-5) servo.write(output);
+      if(input<setpoint+5 && input > setpoint-10) servo.write(output);
       else {
       pid->Compute();
       output=map(output,0,180,from,to);
@@ -38,9 +38,9 @@ class Finger {
     }
 };
 
-Finger middleFinger(A1, 10, 670, 3.0, 2.0, 0.1, 0, 180);   // Middle & Ring (PID)
-Finger indexFinger(A3, 5, 550, 3.0, 2.00, 0.1, 180, 0);     // Index (PID)
-Finger thumbFinger(A0, 6, 800, 3.0, 2.00, 0.1, 180, 0);     // Thumb (PID)
+Finger middleFinger(A1, 10, 660, 3.0, 2.0, 0.1, 0, 180);   // Middle & Ring (PID)
+Finger indexFinger(A3, 5, 450, 3.0, 2.00, 0.1, 180, 0);     // Index (PID)
+Finger thumbFinger(A0, 6, 740, 3.0, 2.00, 0.1, 180, 0);     // Thumb (PID)
 Finger pinkyFinger(A2, 9, 700, 3.0, 2.00, 0.1, 0, 180);     // pinky (PID)
 
 /*
@@ -71,7 +71,7 @@ void setup() {
   indexFinger.servo.write(180);
   thumbFinger.servo.write(180);
   pinkyFinger.servo.write(0);
-  gripServo.write(180);  // Half-closed grip
+  gripServo.write(100);  // Half-closed grip
   delay(1500);
 
   gripServo.write(100);  // Half-closed grip
@@ -90,11 +90,11 @@ void loop() {
   pinkyFinger.update();
 
   Serial.print(middleFinger.input); Serial.print("\t");
-  Serial.print(670);                Serial.print("\t");
+  Serial.print(660);                Serial.print("\t");
   Serial.print(indexFinger.input);  Serial.print("\t");
-  Serial.print(550);                Serial.print("\t");
+  Serial.print(450);                Serial.print("\t");
   Serial.print(thumbFinger.input);  Serial.print("\t");
-  Serial.print(800);                Serial.print("\t");
+  Serial.print(740);                Serial.print("\t");
   Serial.print(pinkyFinger.input);  Serial.print("\t");
   Serial.println(700); // Last one ends with println
 
@@ -105,10 +105,10 @@ void loop() {
   indexFinger.servo.write(180);
   thumbFinger.servo.write(180);
   pinkyFinger.servo.write(0);
-  gripServo.write(180);  // Half-closed grip
+  gripServo.write(100);  // Half-closed grip
   delay(1500);
 
-  gripServo.write(105);  // Half-closed grip
+  gripServo.write(100);  // Half-closed grip
   delay(1500);
     }
 
