@@ -60,3 +60,7 @@ This project implements a robotic hand using servo motors and flex sensors, cont
 
 *Wiring Diagram*  
 ![Gameplay Screenshot](Schematics/Block_Diagram.png)
+
+*Code Block Diagram*  
+![Gameplay Screenshot](Schematics/Controls_Code_Block.jpg)
+
